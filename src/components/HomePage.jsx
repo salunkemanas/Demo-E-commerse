@@ -1,5 +1,4 @@
 import Card from './Card'
-import Navbar from './Navbar'
 import thankyou from '../assets/thankyou.jpg'
 import SideBar from './SideBar'
 import { useState } from 'react'
@@ -8,19 +7,21 @@ const HomePage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Position');
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+    const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleSelectOption = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false); // close dropdown after selection
-  };
+    const handleSelectOption = (option) => {
+        setSelectedOption(option);
+        setIsOpen(false); 
+    };
+
+    
 
   return (
       <div>
-          <div className="grid grid-cols-6 gap-4">
-              <div className='col-start-2 col-span-4'>
-                  <div className='mx-auto my-6'>Home / Stationery 123 / Boxed Stationery / Thank You </div>
-                  <img src={thankyou} alt="" />
+          <div className="grid grid-cols-10 gap-4">
+              <div className='col-start-1 col-span-10 px-5 md:col-start-2 md:col-span-8'>
+                  <div className='mx-auto my-6 text-xl'>Home / Stationery 123 / Boxed Stationery / Thank You </div>
+                  <img src={thankyou} alt="" className="h-1/4 w-full"/>
                   <div className="flex justify-end items-center space-x-2 pt-10 pr-5">
                       <div className="flex justify-end items-center space-x-2 pr-5">
                           <div className="text-purple-600">Sort by:</div>
@@ -34,26 +35,31 @@ const HomePage = () => {
                               {isOpen && (
                                   <ul className="absolute bg-white shadow-md z-10 mt-2 text-gray-700 w-48">
                                       <li className="">
-                                          <a className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/" onClick={() => handleSelectOption('Position')}>Position</a>
+                                          <div className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap cursor-pointer" onClick={() => handleSelectOption('Position')}>Position</div>
                                       </li>
                                       <li className="">
-                                          <a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/" onClick={() => handleSelectOption('Low to High')}>Low to High</a>
+                                          <div className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={() => handleSelectOption('Low To High')}>Low to High</div>
                                       </li>
                                       <li className="">
-                                          <a className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/" onClick={() => handleSelectOption('Name')}>Name</a>
+                                          <div className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={() => handleSelectOption('Name')}>Name</div>
                                       </li>
                                       <li className="">
-                                          <a className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/" onClick={() => handleSelectOption('Color')}>Color</a>
+                                          <div className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" onClick={() => handleSelectOption('High To Low')}>High to Low</div>
                                       </li>
                                   </ul>
                               )}
                           </div>
                       </div>
                   </div>
-                  <div className='grid grid-cols-4'>
+                  {/* <div className='grid grid-cols-4'>
                       <div className='col-span-1 hidden sm:block'><SideBar /></div>
-                      <div className='col-span-3'><Card /></div>
+                      <div className='col-span-3'><Card selectedOption={selectedOption}/></div>
+                  </div> */}
+                  <div className='grid grid-cols-1 md:grid-cols-4'>
+                      <div className='col-span-1 hidden md:block'><SideBar /></div>
+                      <div className='col-span-3'><Card selectedOption={selectedOption} /></div>
                   </div>
+                  
               </div>
           </div>
       </div>
