@@ -51,10 +51,6 @@ const HomePage = () => {
                           </div>
                       </div>
                   </div>
-                  {/* <div className='grid grid-cols-4'>
-                      <div className='col-span-1 hidden sm:block'><SideBar /></div>
-                      <div className='col-span-3'><Card selectedOption={selectedOption}/></div>
-                  </div> */}
                   <div className='grid grid-cols-1 md:grid-cols-4'>
                       <div className='col-span-1 hidden md:block'><SideBar /></div>
                       <div className='col-span-3'><Card selectedOption={selectedOption} /></div>
