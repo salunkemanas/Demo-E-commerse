@@ -1,9 +1,14 @@
 import React from 'react'
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+
 const ProductDetail = () => {
   
-  const [activeTab, setActiveTab] = useState('overview');
-
+    const [activeTab, setActiveTab] = useState('overview');
+    const { id } = useParams();
+    const numericUserId = parseInt(id, 10);
+    console.log(numericUserId);
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
@@ -101,7 +106,7 @@ const ProductDetail = () => {
                 {/* Main content */}
                 <div className="flex flex-col md:flex-row w-full">
                     <div className="w-full lg:w-1/2">
-                        <img src={`${products[0].imageSrc}`} alt="Product Image" className="w-full" />
+                        <img src={products[numericUserId-1].imageSrc} alt="Product Image" className="w-full" />
                         {/* Thumbnail images for small screens */}
                         <div className="flex lg:hidden justify-center space-x-2 mt-4">
                             {products.slice(0, 3).map((product, index) => (
@@ -111,13 +116,13 @@ const ProductDetail = () => {
                     </div>
                     
                     <div className="w-full lg:w-1/2 lg:mt-0 lg:ml-6">
-                        <h1 className="text-2xl font-bold">Regency Thank You Note</h1>
+                        <h1 className="text-2xl font-bold">{products[numericUserId-1].name}</h1>
                         <p className="mt-2 text-gray-600">
                             A thoughtful gesture or generous gift deserves a special thank you note. Made from warm white, all-cotton paper with classic,
                             its engraved by a proprietary and expertly into cover, our Gold Engraved Regency Thank You Note rises to the occasion.
                         </p>
                         <div className="flex mt-4">
-                            <span className="text-xl font-semibold">$20.00/box</span>
+                            <span className="text-xl font-semibold">{products[numericUserId-1].price}/box</span>
                         </div>
                         <div className="mt-4">
                             <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Quantity</label>
