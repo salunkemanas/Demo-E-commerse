@@ -131,7 +131,7 @@ const ProductDetail = () => {
                         <button className="mt-4 bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 w-full">Add to Cart</button>
                         
                         {/* Tab navigation */}
-                        <div className="mt-4 flex border-b">
+                        <div className="mt-4 flex justify-center border-b">
                             <button
                                 className={`py-2 px-4 text-sm font-medium ${activeTab === 'overview' ? 'border-b-2 border-purple-600' : ''}`}
                                 onClick={() => handleTabClick('overview')}

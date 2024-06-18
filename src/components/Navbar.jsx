@@ -8,7 +8,7 @@ const Navbar = () => {
   };
 
   return (
-    
+
     <nav className="bg-white shadow sticky top-0 z-50">
       <div className="mx-auto px-4 flex justify-between items-center py-3">
         {/* Hamburger Menu */}
@@ -33,7 +33,7 @@ const Navbar = () => {
           <a href="#" className="text-gray-600 hover:text-gray-900">SYMPATHY</a>
           <a href="#" className="text-gray-600 hover:text-gray-900">SALE</a>
         </div>
-        
+
         {/* Search and Icons - only cart visible on mobile */}
         <div className="flex items-center space-x-2">
           <button className="p-2 rounded-full hover:bg-gray-100 md:flex hidden">
@@ -43,9 +43,9 @@ const Navbar = () => {
           </button>
           <button className="p-2 rounded-full hover:bg-gray-100 md:flex hidden">
             <svg className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-             </svg>
-           </button>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
           <button className="p-2 rounded-full hover:bg-gray-100">
             <svg className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h4l1.22 3H20a1 1 0 011 1v1a1 1 0 01-1 1H8.42l-1.4 3.6a1 1 0 00.9 1.4h9.63a1 1 0 110 2H9a1 1 0 01-1-1v-1a1 1 0 010-2h.62l1.72-4.44L8 4H4v2a1 1 0 11-2 0V3a1 1 0 011-1z" />
@@ -57,15 +57,32 @@ const Navbar = () => {
 
       {/* Mobile Menu - visible only on mobile */}
       {isMenuOpen && (
-        <div className="md:hidden">
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">STATIONERY 123</a>
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">WEDDING</a>
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">BUSINESS</a>
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">HOLIDAY</a>
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">EVENTS</a>
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">SYMPATHY</a>
-          <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">SALE</a>
+        
+        <div className="flex">
+          <div className="flex flex-col w-4/5 bg-blue-500 text-white">
+            <div className="flex items-center border-2 border-white p-1">
+              <input
+                type="text"
+                className="flex-grow p-2 text-sm focus:outline-none"
+                placeholder="Search..."
+              />
+              <button className="p-2 hover:bg-blue-700">
+                &#128269;
+              </button>
+            </div>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">STATIONERY 123</a>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">WEDDING</a>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">BUSINESS</a>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">HOLIDAY</a>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">EVENTS</a>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">SYMPATHY</a>
+            <a href="#" className="block py-2 px-4 text-sm hover:bg-blue-700">SALE</a>
+          </div>
+          <div className="w-1/5">
+
+          </div>
         </div>
+
       )}
     </nav>
   );
